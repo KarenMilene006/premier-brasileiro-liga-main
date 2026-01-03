@@ -39,7 +39,7 @@ const Index = () => {
   { id: "9", abreviacao: "TOT SUN" },
   { id: "10", abreviacao: "MCI CHE" },
   ],
-  jogadores: [
+  participantes: [
     {
       nome: "Brenno",
       pontos: 102,
@@ -111,9 +111,9 @@ const Index = () => {
   ],
   placarFinal: [
    { partidaId: "1", placar: "3-1" },   // AVL NFO
-  { partidaId: "2", placar: "0-0" },   // BHA BUR  
-  { partidaId: "3", placar: "0-0" },   // WOL WHU
-  { partidaId: "4", placar: "0-0" },   // BOU ARS
+  { partidaId: "2", placar: "2-0" },   // BHA BUR  
+  { partidaId: "3", placar: "3-0" },   // WOL WHU
+  { partidaId: "4", placar: "2-3" },   // BOU ARS
   { partidaId: "5", placar: "0-0" },   // LEE MUN
   { partidaId: "6", placar: "0-0" },   // EVE BRE
   { partidaId: "7", placar: "0-0" },   // FUL LIV

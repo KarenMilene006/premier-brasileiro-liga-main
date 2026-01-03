@@ -12,7 +12,7 @@ export interface Palpite {
   placar: string;
 }
 
-export interface Jogador {
+export interface Participante {
   nome: string;
   palpites: Palpite[];
   pontos: number;
@@ -21,7 +21,7 @@ export interface Jogador {
 
 export interface BolaoData {
   partidas: Partida[];
-  jogadores: Jogador[];
+  participantes: Participante[];
   placarFinal: { partidaId: string; placar: string }[];
 }
 
@@ -33,59 +33,50 @@ interface BolaoProps {
 type CellState = "normal" | "placar-vencedor" | "cravada";
 
 export const Bolao = ({ data, className }: BolaoProps) => {
-  const { partidas, jogadores, placarFinal } = data;
+  const { partidas, participantes, placarFinal } = data;
 
-  const STORAGE_KEY = "bolao-cell-states";
-
-  // 🔹 Estado carregado do localStorage
-  const [cellStates, setCellStates] = useState<Record<string, CellState>>(() => {
-    if (typeof window === "undefined") return {};
-    const saved = localStorage.getItem(STORAGE_KEY);
-    return saved ? JSON.parse(saved) : {};
-  });
-
-  // 🔹 Salva sempre que o estado mudar
-  useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(cellStates));
-  }, [cellStates]);
-
-  const getCellKey = (jogadorNome: string, partidaId: string) => {
-    return `${jogadorNome}-${partidaId}`;
+  // 🔹 Função para calcular o vencedor de um placar
+  const getVencedor = (placar: string): "casa" | "visitante" | "empate" => {
+    const [golsCasa, golsVisitante] = placar.split("-").map(Number);
+    if (golsCasa > golsVisitante) return "casa";
+    if (golsVisitante > golsCasa) return "visitante";
+    return "empate";
   };
 
-  const handleCellClick = (jogadorNome: string, partidaId: string) => {
-    const key = getCellKey(jogadorNome, partidaId);
-    const currentState = cellStates[key] || "normal";
+  // 🔹 Função para calcular estado automático da célula
+  const getAutomaticState = (
+    participanteNome: string,
+    partidaId: string
+  ): CellState => {
+    const palpite = participantes
+      .find((j) => j.nome === participanteNome)
+      ?.palpites.find((p) => p.partidaId === partidaId);
+    
+    const resultadoFinal = placarFinal.find((p) => p.partidaId === partidaId);
 
-    let nextState: CellState;
-    switch (currentState) {
-      case "normal":
-        nextState = "placar-vencedor";
-        break;
-      case "placar-vencedor":
-        nextState = "cravada";
-        break;
-      case "cravada":
-        nextState = "normal";
-        break;
-      default:
-        nextState = "normal";
-    }
+    // Se não tem palpite ou resultado, retorna normal
+    if (!palpite?.placar || !resultadoFinal?.placar) return "normal";
 
-    setCellStates((prev) => ({
-      ...prev,
-      [key]: nextState,
-    }));
+    const palpiteVencedor = getVencedor(palpite.placar);
+    const resultadoVencedor = getVencedor(resultadoFinal.placar);
+
+    // 🔹 Cravada: placar exato
+    if (palpite.placar === resultadoFinal.placar) return "cravada";
+
+    // 🔹 Placar vencedor: acertou quem ganhou (mesmo sem placar exato)
+    if (palpiteVencedor === resultadoVencedor) return "placar-vencedor";
+
+    return "normal";
   };
 
   const getCellClass = (state: CellState) => {
     switch (state) {
       case "cravada":
-        return "bg-green-500/80 hover:bg-green-500 text-white shadow-md border-2 border-green-600/50";
+        return "bg-green-500/80 text-white shadow-md";
       case "placar-vencedor":
-        return "bg-blue-500/80 hover:bg-blue-500 text-gray-900 shadow-sm border border-blue-500/50";
+        return "bg-blue-500/80 hover:bg-blue-500 text-white shadow-sm";
       default:
-        return "";
+        return "bg-muted/50 text-muted-foreground";
     }
   };
 
@@ -101,15 +92,16 @@ export const Bolao = ({ data, className }: BolaoProps) => {
         <div className="flex items-center gap-3 p-3 bg-green-500/20 rounded-lg border border-green-500/30">
           <div className="w-5 h-6 bg-green-500 rounded" />
           <span className="font-medium text-foreground/90">
-            CRAVADA +3 (2 cliques)
+            🟢 CRAVADA +3 (Placar exato)
           </span>
         </div>
         <div className="flex items-center gap-3 p-3 bg-blue-500/20 rounded-lg border border-blue-500/50">
           <div className="w-5 h-6 bg-blue-500 rounded" />
           <span className="font-medium text-foreground/90">
-            PLACAR OU VENCEDOR +1 (1 clique)
+            🔵 VENCEDOR +1 (Acertou quem ganhou)
           </span>
         </div>
+  
       </div>
 
       {/* Tabela */}
@@ -119,7 +111,7 @@ export const Bolao = ({ data, className }: BolaoProps) => {
           <thead>
             <tr className="bg-gradient-to-r from-primary/10 to-secondary/20 border-b-2 border-border/50">
               <th className="bolao-header px-6 py-4 text-left font-bold text-lg text-foreground/90 w-36">
-                JOGADOR
+                PARTICIPANTE
               </th>
               {partidas.map((partida) => (
                 <th
@@ -134,47 +126,38 @@ export const Bolao = ({ data, className }: BolaoProps) => {
                 </th>
               ))}
               <th className="px-6 py-4 text-right font-bold text-lg text-foreground/90 w-28">
-                PTS
+                PONTOS
               </th>
             </tr>
           </thead>
 
           {/* Body */}
           <tbody>
-            {jogadores.map((jogador, index) => (
+            {participantes.map((participante, index) => (
               <tr
-                key={jogador.nome}
+                key={participante.nome}
                 className={cn(
                   "transition-all duration-200 hover:bg-muted/80 border-b border-border/20",
                   index % 2 === 0 ? "bg-background" : "bg-muted/30"
                 )}
               >
                 <td className="px-6 py-4 font-semibold text-base text-foreground/95 text-left sticky left-0 bg-inherit z-10">
-                  {jogador.nome}
+                  {participante.nome}
                 </td>
 
                 {partidas.map((partida) => {
-                  const palpite = jogador.palpites.find(
+                  const palpite = participante.palpites.find(
                     (p) => p.partidaId === partida.id
                   );
-                  const cellKey = getCellKey(jogador.nome, partida.id);
-                  const state = cellStates[cellKey] || "normal";
+                  const state = getAutomaticState(participante.nome, partida.id);
 
                   return (
                     <td
                       key={partida.id}
                       className={cn(
-                        "px-2 py-3 text-center font-mono text-lg cursor-pointer transition-all duration-200 hover:scale-105 hover:shadow-md rounded-lg mx-1 select-none border border-transparent",
-                        getCellClass(state),
-                        state === "normal"
-                          ? "hover:bg-muted/50 hover:border-border/50 text-foreground/70"
-                          : ""
+                        "px-2 py-3 text-center font-mono text-lg transition-all duration-300 mx-1 border shadow-sm",
+                        getCellClass(state)
                       )}
-                      onClick={() =>
-                        handleCellClick(jogador.nome, partida.id)
-                      }
-                      tabIndex={0}
-                      role="button"
                     >
                       {palpite?.placar || "-"}
                     </td>
@@ -182,10 +165,10 @@ export const Bolao = ({ data, className }: BolaoProps) => {
                 })}
 
                 <td className="px-6 py-4 font-bold text-xl text-right text-primary/95">
-                  {jogador.pontos}
-                  {jogador.cravadas !== undefined && (
+                  {participante.pontos}
+                  {participante.cravadas !== undefined && (
                     <span className="text-sm text-muted-foreground ml-2">
-                      ({jogador.cravadas})
+                      ({participante.cravadas})
                     </span>
                   )}
                 </td>
@@ -193,8 +176,8 @@ export const Bolao = ({ data, className }: BolaoProps) => {
             ))}
 
             {/* Linha do Placar Final */}
-            <tr className="bg-purple-100 border-t-4 border-green-800">
-              <td className="px-6 py-4 font-bold text-lg text-black text-left uppercase tracking-wide">
+            <tr className="bg-gradient-to-r from-purple-500/20 to-blue-500/20 border-t-4 border-purple-600">
+              <td className="px-5 py-4 font-bold text-lg text-purple-900 text-left uppercase tracking-wide">
                 PLACAR FINAL
               </td>
               {partidas.map((partida) => {
@@ -204,9 +187,11 @@ export const Bolao = ({ data, className }: BolaoProps) => {
                 return (
                   <td
                     key={partida.id}
-                    className="px-3 py-4 text-center font-bold bg-blue/20 rounded-lg mx-1 shadow-inner"
+                    className="px-3 py-4 text-center font-bold text-xl bg-gradient-to-br from-purple-100 to-blue-100 rounded-lg mx-1 shadow-lg border-2 border-purple-300"
                   >
-                    {resultado?.placar || "-"}
+                    <span className="font-mono tracking-wider">
+                      {resultado?.placar || "-"}
+                    </span>
                   </td>
                 );
               })}
