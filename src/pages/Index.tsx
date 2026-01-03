@@ -110,16 +110,16 @@ const Index = () => {
     },
   ],
   placarFinal: [
-   { partidaId: "1", placar: "2-1" },   // AVL NFO
-  { partidaId: "2", placar: "3-0" },   // BHA BUR  
-  { partidaId: "3", placar: "2-2" },   // WOL WHU
-  { partidaId: "4", placar: "1-1" },   // BOU ARS
-  { partidaId: "5", placar: "2-3" },   // LEE MUN
-  { partidaId: "6", placar: "2-1" },   // EVE BRE
-  { partidaId: "7", placar: "2-1" },   // FUL LIV
-  { partidaId: "8", placar: "1-0" },   // NEW CRY
-  { partidaId: "9", placar: "1-2" },   // TOT SUN
-  { partidaId: "10", placar: "3-1" },
+   { partidaId: "1", placar: "3-1" },   // AVL NFO
+  { partidaId: "2", placar: "0-0" },   // BHA BUR  
+  { partidaId: "3", placar: "0-0" },   // WOL WHU
+  { partidaId: "4", placar: "0-0" },   // BOU ARS
+  { partidaId: "5", placar: "0-0" },   // LEE MUN
+  { partidaId: "6", placar: "0-0" },   // EVE BRE
+  { partidaId: "7", placar: "0-0" },   // FUL LIV
+  { partidaId: "8", placar: "0-0" },   // NEW CRY
+  { partidaId: "9", placar: "0-0" },   // TOT SUN
+  { partidaId: "10", placar: "0-0" },
   ],
 };
 

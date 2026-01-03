@@ -46,7 +46,7 @@ All colors MUST be HSL.
     --pl-purple-light: 300 100% 35%;
     --pl-purple-dark: 300 100% 15%;
     --pl-green: 120 100% 30%;
-    --pl-yellow: 60 100% 50%;
+    --pl-red: 0, 100%, 50%;
     --pl-blue: 220 100% 45%;
 
     /* Gradients */
