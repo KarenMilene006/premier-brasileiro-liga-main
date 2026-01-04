@@ -32,7 +32,7 @@ interface BolaoProps {
 
 type CellState = "normal" | "placar-vencedor" | "cravada";
 
-export const Bolao = ({ data, className }: BolaoProps) => {
+export const BolaoParticipantes = ({ data, className }: BolaoProps) => {
   const { partidas, participantes, placarFinal } = data;
 
   // 🔹 Função para calcular o vencedor de um placar
@@ -81,10 +81,10 @@ export const Bolao = ({ data, className }: BolaoProps) => {
   };
 
   return (
-    <div className={cn("w-full max-w-7xl mx-auto p-6", className)}>
+    <div className={cn(" border-red-700 w-full max-w-7xl mx-auto p-6", className)}>
       {/* Título */}
-      <h1 className="text-4xl md:text-5xl font-display font-bold text-center mb-8 p-5 tracking-wider bg-gradient-to-r from-foreground to-primary/80 bg-clip-text text-transparent drop-shadow-lg">
-        BOLÃO RODADA 20(Equipe)
+      <h1 className="border-red-700 text-4xl md:text-5xl font-display font-bold text-center mb-8 p-5 tracking-wider bg-gradient-to-r from-foreground to-primary/80 bg-clip-text text-transparent drop-shadow-lg">
+        BOLÃO RODADA 21(Partipantes)
       </h1>
 
       {/* Legenda */}

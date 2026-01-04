@@ -30,15 +30,15 @@ interface LeagueTableProps {
 
 const getPositionBadge = (position: number) => {
   if (position <= 4) return "bg-pl-green text-white";
-  if (position <= 6) return "bg-pl-blue text-white";
+  if (position <= 5) return "bg-pl-blue text-white";
   if (position >= 18) return "bg-pl-red text-white";
+
   return "bg-gray-100 text-gray-800";
 };
 
 const getPositionText = (position: number) => {
   if (position <= 4) return "Champions League";
   if (position === 5) return "Europa League";
-  if (position === 6) return "Conference League";
   if (position >= 18) return "Rebaixamento";
   return "";
 };
@@ -173,6 +173,7 @@ export const LeagueTable = ({ standings, isLoading }: LeagueTableProps) => {
             <div className="w-4 h-4 bg-pl-red rounded"></div>
             <span>Rebaixamento</span>
           </div>
+          
         </div>
       </CardContent>
     </Card>

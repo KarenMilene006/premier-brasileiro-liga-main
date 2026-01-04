@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Bolao, BolaoData } from "@/components/Bolao";
 import { RefreshCw, Wifi } from "lucide-react";
 import { toast } from "sonner";
+import { BolaoParticipantes } from "@/components/BolaoParticipantes";
 
 const Index = () => {
   const { standings, matches, isLoading, refreshData } = usePremierLeagueData();
@@ -26,7 +27,7 @@ const Index = () => {
   };
 
 
-  const dadosExemplo: BolaoData = {
+  const dadosEquipe: BolaoData = {
   partidas: [
    { id: "1", abreviacao: "AVL NFO" },
   { id: "2", abreviacao: "BHA BUR" },
@@ -42,8 +43,8 @@ const Index = () => {
   participantes: [
     {
       nome: "Brenno",
-      pontos: 102,
-      cravadas: 8,
+      pontos: 111,
+      cravadas: 10,
       palpites: [
   { partidaId: "1", placar: "2-0" },
   { partidaId: "2", placar: "2-0" },
@@ -59,10 +60,10 @@ const Index = () => {
     },
     {
       nome: "Karen",
-      pontos: 118,
+      pontos: 121,
       cravadas: 16,
       palpites: [
-       { partidaId: "1", placar: "2-1" },
+  { partidaId: "1", placar: "2-1" },
   { partidaId: "2", placar: "3-0" },
   { partidaId: "3", placar: "2-2" },
   { partidaId: "4", placar: "1-1" },
@@ -76,7 +77,7 @@ const Index = () => {
     },
     {
       nome: "Nicolas",
-      pontos: 119,
+      pontos: 124,
       cravadas: 14,
       palpites: [
   { partidaId: "1", placar: "2-0" },
@@ -93,8 +94,8 @@ const Index = () => {
     },
     {
       nome: "Victor",
-      pontos: 110,
-      cravadas: 13,
+      pontos: 116,
+      cravadas: 14,
       palpites: [
        { partidaId: "1", placar: "3-0" },
   { partidaId: "2", placar: "2-0" },
@@ -114,12 +115,126 @@ const Index = () => {
   { partidaId: "2", placar: "2-0" },   // BHA BUR  
   { partidaId: "3", placar: "3-0" },   // WOL WHU
   { partidaId: "4", placar: "2-3" },   // BOU ARS
-  { partidaId: "5", placar: "0-0" },   // LEE MUN
-  { partidaId: "6", placar: "0-0" },   // EVE BRE
-  { partidaId: "7", placar: "0-0" },   // FUL LIV
-  { partidaId: "8", placar: "0-0" },   // NEW CRY
-  { partidaId: "9", placar: "0-0" },   // TOT SUN
-  { partidaId: "10", placar: "0-0" },
+  { partidaId: "5", placar: "1-1" },   // LEE MUN
+  { partidaId: "6", placar: "2-4" },   // EVE BRE
+  { partidaId: "7", placar: "2-0" },   // FUL LIV
+  { partidaId: "8", placar: "1-1" },   // NEW CRY
+  { partidaId: "9", placar: "2-2" },   // TOT SUN
+  { partidaId: "10", placar: "1-1" },
+  ],
+};
+
+ const dadosParticipantes: BolaoData = {
+  partidas:[
+  { id: "1", abreviacao: "WHU NFO" }, // West Ham x Forest
+  { id: "2", abreviacao: "BOU TOT" }, // Bournemouth x Tottenham
+  { id: "3", abreviacao: "BRE SUN" }, // Brentford x Sunderland
+  { id: "4", abreviacao: "CRY AVL" }, // Crystal Palace x Aston Villa
+  { id: "5", abreviacao: "EVE WOL" }, // Everton x Wolves
+  { id: "6", abreviacao: "FUL CHE" }, // Fulham x Chelsea
+  { id: "7", abreviacao: "MCI BHA" }, // Man City x Brighton
+  { id: "8", abreviacao: "BUR MUN" }, // Burnley x Man Utd
+  { id: "9", abreviacao: "NEW LEE" }, // Newcastle x Leeds
+  { id: "10", abreviacao: "ARS LIV" } // Arsenal x Liverpool
+],
+  participantes: [
+    {
+      nome: "-",
+      pontos: 0,
+      cravadas: 0,
+      palpites: [
+  { partidaId: "1", placar: "" },
+  { partidaId: "2", placar: "-" },
+  { partidaId: "3", placar: "-" },
+  { partidaId: "4", placar: "-" },
+  { partidaId: "5", placar: "-" },
+  { partidaId: "6", placar: "-" },
+  { partidaId: "7", placar: "-" },
+  { partidaId: "8", placar: "-" },
+  { partidaId: "9", placar: "-" },
+  { partidaId: "10", placar:"-" },
+      ],
+    },
+    {
+      nome: "-",
+      pontos: 0,
+      cravadas: 0,
+      palpites: [
+  { partidaId: "1", placar: "" },
+  { partidaId: "2", placar: "-" },
+  { partidaId: "3", placar: "-" },
+  { partidaId: "4", placar: "-" },
+  { partidaId: "5", placar: "-" },
+  { partidaId: "6", placar: "-" },
+  { partidaId: "7", placar: "-" },
+  { partidaId: "8", placar: "-" },
+  { partidaId: "9", placar: "-" },
+  { partidaId: "10", placar:"-" },
+      ],
+    },
+    {
+      nome: "-",
+      pontos: 0,
+      cravadas: 0,
+      palpites: [
+  { partidaId: "1", placar: "" },
+  { partidaId: "2", placar: "-" },
+  { partidaId: "3", placar: "-" },
+  { partidaId: "4", placar: "-" },
+  { partidaId: "5", placar: "-" },
+  { partidaId: "6", placar: "-" },
+  { partidaId: "7", placar: "-" },
+  { partidaId: "8", placar: "-" },
+  { partidaId: "9", placar: "-" },
+  { partidaId: "10", placar:"-" },
+      ],
+    },
+    {
+      nome: "-",
+      pontos: 0,
+      cravadas: 0,
+      palpites: [
+  { partidaId: "1", placar: "" },
+  { partidaId: "2", placar: "-" },
+  { partidaId: "3", placar: "-" },
+  { partidaId: "4", placar: "-" },
+  { partidaId: "5", placar: "-" },
+  { partidaId: "6", placar: "-" },
+  { partidaId: "7", placar: "-" },
+  { partidaId: "8", placar: "-" },
+  { partidaId: "9", placar: "-" },
+  { partidaId: "10", placar:"-" },
+      ],
+    },
+     {
+      nome: "-",
+      pontos: 0,
+      cravadas: 0,
+      palpites: [
+  { partidaId: "1", placar: "" },
+  { partidaId: "2", placar: "-" },
+  { partidaId: "3", placar: "-" },
+  { partidaId: "4", placar: "-" },
+  { partidaId: "5", placar: "-" },
+  { partidaId: "6", placar: "-" },
+  { partidaId: "7", placar: "-" },
+  { partidaId: "8", placar: "-" },
+  { partidaId: "9", placar: "-" },
+  { partidaId: "10", placar:"-" },
+      ],
+    },
+  ],
+  placarFinal: [
+   { partidaId: "1", placar: "" },   // AVL NFO
+  { partidaId: "2", placar: "" },   // BHA BUR  
+  { partidaId: "3", placar: "" },   // WOL WHU
+  { partidaId: "4", placar: "" },   // BOU ARS
+  { partidaId: "5", placar: "" },   // LEE MUN
+  { partidaId: "6", placar: "" },   // EVE BRE
+  { partidaId: "7", placar: "" },   // FUL LIV
+  { partidaId: "8", placar: "" },   // NEW CRY
+  { partidaId: "9", placar: "" },   // TOT SUN
+  { partidaId: "10", placar: "" },
   ],
 };
 
@@ -160,7 +275,8 @@ const Index = () => {
             <MatchResults matches={matches} isLoading={isLoading} />
           </div>
         </div>
-         <Bolao data={dadosExemplo} />
+         <Bolao data={dadosEquipe} />
+          <BolaoParticipantes data={dadosParticipantes} />
         
       </main>
     </div>
