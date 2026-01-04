@@ -75,7 +75,7 @@ const formatTime = (dateString: string) => {
 };
 
 export const MatchResults = ({ matches, isLoading, currentMatchday }: MatchResultsProps) => {
-  const [selectedMatchday, setSelectedMatchday] = useState<number | "all">("all");
+  const [selectedMatchday, setSelectedMatchday] = useState<number | "all">(20);
 
   // 🔹 já começa na rodada atual
   useEffect(() => {
