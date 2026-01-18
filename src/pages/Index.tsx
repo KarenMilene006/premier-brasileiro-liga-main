@@ -29,212 +29,213 @@ const Index = () => {
 
   const dadosEquipe: BolaoData = {
   partidas: [
-   { id: "1", abreviacao: "AVL NFO" },
-  { id: "2", abreviacao: "BHA BUR" },
-  { id: "3", abreviacao: "WOL WHU" },
-  { id: "4", abreviacao: "BOU ARS" },
-  { id: "5", abreviacao: "LEE MUN" },
-  { id: "6", abreviacao: "EVE BRE" },
-  { id: "7", abreviacao: "FUL LIV" },
-  { id: "8", abreviacao: "NEW CRY" },
-  { id: "9", abreviacao: "TOT SUN" },
-  { id: "10", abreviacao: "MCI CHE" },
-  ],
+  { id: "1",  abreviacao: "MUN MCI" }, // Man Utd x Man City
+  { id: "2",  abreviacao: "CHE BRE" }, // Chelsea x Brentford
+  { id: "3",  abreviacao: "LEE FUL" }, // Leeds x Fulham
+  { id: "4",  abreviacao: "LIV BUR" }, // Liverpool x Burnley
+  { id: "5",  abreviacao: "SUN CRY" }, // Sunderland x Crystal Palace
+  { id: "6",  abreviacao: "TOT WHU" }, // Tottenham x West Ham
+  { id: "7",  abreviacao: "NFO ARS" }, // Forest x Arsenal
+  { id: "8",  abreviacao: "WOL NEW" }, // Wolves x Newcastle
+  { id: "9",  abreviacao: "AVL EVE" }, // Aston Villa x Everton
+  { id: "10", abreviacao: "BHA BOU" }, // Brighton x Bournemouth
+],
   participantes: [
     {
       nome: "Brenno",
-      pontos: 111,
+      pontos: 114,
       cravadas: 10,
       palpites: [
-  { partidaId: "1", placar: "2-0" },
-  { partidaId: "2", placar: "2-0" },
-  { partidaId: "3", placar: "0-3" },
-  { partidaId: "4", placar: "0-2" },
-  { partidaId: "5", placar: "1-1" },
-  { partidaId: "6", placar: "0-2" },
-  { partidaId: "7", placar: "0-2" },
-  { partidaId: "8", placar: "2-1" },
-  { partidaId: "9", placar: "0-1" },
-  { partidaId: "10", placar: "3-0" },
+ { partidaId: "1",  placar: "0-4" }, // MUN 2 - 2 MCI
+  { partidaId: "2",  placar: "2-1" }, // CHE 1 - 1 BRE
+  { partidaId: "3",  placar: "2-0" }, // LIV 3 - 0 BUR
+  { partidaId: "4",  placar: "1-0" }, // LEE 1 - 0 FUL
+  { partidaId: "5",  placar: "2-0" }, // SUN 2 - 1 CRY
+  { partidaId: "6",  placar: "2-1" }, // TOT 2 - 1 WHU
+  { partidaId: "7",  placar: "0-3" }, // NFO 0 - 2 ARS
+  { partidaId: "8",  placar: "0-4" }, // WOL 0 - 1 NEW
+  { partidaId: "9",  placar: "2-0" }, // AVL 2 - 0 EVE
+  { partidaId: "10", placar: "2-0" }, // BHA 1 - 0 BOU
       ],
     },
     {
       nome: "Karen",
-      pontos: 121,
-      cravadas: 16,
+      pontos: 126,
+      cravadas: 17,
       palpites: [
-  { partidaId: "1", placar: "2-1" },
-  { partidaId: "2", placar: "3-0" },
-  { partidaId: "3", placar: "2-2" },
-  { partidaId: "4", placar: "1-1" },
-  { partidaId: "5", placar: "2-3" },
-  { partidaId: "6", placar: "2-1" },
-  { partidaId: "7", placar: "2-1" },
-  { partidaId: "8", placar: "1-0" },
-  { partidaId: "9", placar: "1-2" },
-  { partidaId: "10", placar: "3-1" },
+  { partidaId: "1",  placar: "2-1" }, // MUN 2 - 1 MCI
+  { partidaId: "2",  placar: "3-1" }, // CHE 1 - 1 BRE
+  { partidaId: "3",  placar: "3-1" }, // LIV 3 - 0 BUR
+  { partidaId: "4",  placar: "2-2" }, // LEE 1 - 0 FUL
+  { partidaId: "5",  placar: "2-1" }, // SUN 2 - 1 CRY
+  { partidaId: "6",  placar: "2-1" }, // TOT 2 - 1 WHU
+  { partidaId: "7",  placar: "1-3" }, // NFO 0 - 2 ARS
+  { partidaId: "8",  placar: "2-3" }, // WOL 0 - 1 NEW
+  { partidaId: "9",  placar: "2-1" }, // AVL 2 - 0 EVE
+  { partidaId: "10", placar: "2-0" }, // BHA 1 - 0 BOU
       ],
     },
     {
       nome: "Nicolas",
-      pontos: 124,
+      pontos: 129,
       cravadas: 14,
       palpites: [
-  { partidaId: "1", placar: "2-0" },
-  { partidaId: "2", placar: "3-1" },
-  { partidaId: "3", placar: "2-1" },
-  { partidaId: "4", placar: "1-2" },
-  { partidaId: "5", placar: "2-2" },
-  { partidaId: "6", placar: "2-1" },
-  { partidaId: "7", placar: "1-1" },
-  { partidaId: "8", placar: "3-1" },
-  { partidaId: "9", placar: "1-2" },
-  { partidaId: "10", placar: "3-0" }
+  { partidaId: "1",  placar: "0-2" }, // MUN 2 - 2 MCI
+  { partidaId: "2",  placar: "2-1" }, // CHE 1 - 1 BRE
+  { partidaId: "3",  placar: "2-1" }, // LIV 3 - 0 BUR
+  { partidaId: "4",  placar: "2-2" }, // LEE 1 - 0 FUL
+  { partidaId: "5",  placar: "3-1" }, // SUN 2 - 1 CRY
+  { partidaId: "6",  placar: "2-1" }, // TOT 2 - 1 WHU
+  { partidaId: "7",  placar: "0-3" }, // NFO 0 - 2 ARS
+  { partidaId: "8",  placar: "1-3" }, // WOL 0 - 1 NEW
+  { partidaId: "9",  placar: "3-1" }, // AVL 2 - 0 EVE
+  { partidaId: "10", placar: "2-0" }, // BHA 1 - 0 BOU
       ],
     },
     {
       nome: "Victor",
-      pontos: 116,
-      cravadas: 14,
+      pontos: 126,
+      cravadas: 15,
       palpites: [
-       { partidaId: "1", placar: "3-0" },
-  { partidaId: "2", placar: "2-0" },
-  { partidaId: "3", placar: "2-1" },
-  { partidaId: "4", placar: "0-2" },
-  { partidaId: "5", placar: "1-0" },
-  { partidaId: "6", placar: "2-0" },
-  { partidaId: "7", placar: "1-1" },
-  { partidaId: "8", placar: "2-1" },
-  { partidaId: "9", placar: "2-1" },
-  { partidaId: "10", placar: "2-0" },
+ { partidaId: "1",  placar: "2-1" }, // MUN x MCI
+{ partidaId: "2",  placar: "2-1" }, // CHE x BRE
+{ partidaId: "3",  placar: "3-0" }, // LIV x BUR
+{ partidaId: "4",  placar: "2-1" }, // LEE x FUL
+{ partidaId: "5",  placar: "2-0" }, // SUN x CRY
+{ partidaId: "6",  placar: "1-0" }, // TOT x WHU
+{ partidaId: "7",  placar: "0-3" }, // NFO x ARS
+{ partidaId: "8",  placar: "1-2" }, // WOL x NEW
+{ partidaId: "9",  placar: "2-0" }, // AVL x EVE
+{ partidaId: "10", placar: "2-0" }, // BHA x BOU
       ],
     },
   ],
   placarFinal: [
-   { partidaId: "1", placar: "3-1" },   // AVL NFO
-  { partidaId: "2", placar: "2-0" },   // BHA BUR  
-  { partidaId: "3", placar: "3-0" },   // WOL WHU
-  { partidaId: "4", placar: "2-3" },   // BOU ARS
-  { partidaId: "5", placar: "1-1" },   // LEE MUN
-  { partidaId: "6", placar: "2-4" },   // EVE BRE
-  { partidaId: "7", placar: "2-0" },   // FUL LIV
-  { partidaId: "8", placar: "1-1" },   // NEW CRY
-  { partidaId: "9", placar: "2-2" },   // TOT SUN
-  { partidaId: "10", placar: "1-1" },
+{ partidaId: "1",  placar: "1-2" }, // West Ham 1 x 2 Forest
+{ partidaId: "2",  placar: "2-0" }, // Bournemouth 0 x 2 Chelsea
+{ partidaId: "3",  placar: "1-0" }, // Brentford 0 x 1 Leeds
+{ partidaId: "4",  placar: "1-1" }, // Crystal Palace 1 x 1 Burnley
+{ partidaId: "5",  placar: "2-1" }, // Everton 1 x 2 Sunderland
+{ partidaId: "6",  placar: "1-2" }, // Fulham 2 x 1 West Ham
+{ partidaId: "7",  placar: "0-0" }, // Man City 0 x 0 Arsenal
+{ partidaId: "8",  placar: "2-0" }, // Burnley 0 x 2 Man Utd
+{ partidaId: "9",  placar: "0-0" }, // Newcastle 0 x 0 Wolves
+  { partidaId: "10", placar: "-" }, // BHA 1 - 0 BOU
   ],
 };
 
  const dadosParticipantes: BolaoData = {
   partidas:[
-  { id: "1", abreviacao: "WHU NFO" }, // West Ham x Forest
-  { id: "2", abreviacao: "BOU TOT" }, // Bournemouth x Tottenham
-  { id: "3", abreviacao: "BRE SUN" }, // Brentford x Sunderland
-  { id: "4", abreviacao: "CRY AVL" }, // Crystal Palace x Aston Villa
-  { id: "5", abreviacao: "EVE WOL" }, // Everton x Wolves
-  { id: "6", abreviacao: "FUL CHE" }, // Fulham x Chelsea
-  { id: "7", abreviacao: "MCI BHA" }, // Man City x Brighton
-  { id: "8", abreviacao: "BUR MUN" }, // Burnley x Man Utd
-  { id: "9", abreviacao: "NEW LEE" }, // Newcastle x Leeds
-  { id: "10", abreviacao: "ARS LIV" } // Arsenal x Liverpool
+  { id: "1",  abreviacao: "MUN MCI" }, // Man Utd x Man City
+  { id: "2",  abreviacao: "CHE BRE" }, // Chelsea x Brentford
+  { id: "3",  abreviacao: "LEE FUL" }, // Leeds x Fulham
+  { id: "4",  abreviacao: "LIV BUR" }, // Liverpool x Burnley
+  { id: "5",  abreviacao: "SUN CRY" }, // Sunderland x Crystal Palace
+  { id: "6",  abreviacao: "TOT WHU" }, // Tottenham x West Ham
+  { id: "7",  abreviacao: "NFO ARS" }, // Forest x Arsenal
+  { id: "8",  abreviacao: "WOL NEW" }, // Wolves x Newcastle
+  { id: "9",  abreviacao: "AVL EVE" }, // Aston Villa x Everton
+  { id: "10", abreviacao: "BHA BOU" }, // Brighton x Bournemouth
 ],
   participantes: [
     {
-      nome: "-",
-      pontos: 0,
-      cravadas: 0,
+      nome: "BRF_Arsenal",
+      pontos: 7,
+      cravadas: 2,
       palpites: [
-  { partidaId: "1", placar: "" },
-  { partidaId: "2", placar: "-" },
-  { partidaId: "3", placar: "-" },
-  { partidaId: "4", placar: "-" },
-  { partidaId: "5", placar: "-" },
-  { partidaId: "6", placar: "-" },
-  { partidaId: "7", placar: "-" },
-  { partidaId: "8", placar: "-" },
-  { partidaId: "9", placar: "-" },
-  { partidaId: "10", placar:"-" },
+  
+  {partidaId: "1",  placar: "1-3" }, // MUN 1 - 3 MCI
+  { partidaId: "2",  placar: "2-0" }, // SUN 2 - 0 CRY
+  { partidaId: "3",  placar: "2-2" }, // CHE 2 - 2 BRE
+  { partidaId: "4",  placar: "5-1" }, // LIV 5 - 1 BUR
+  { partidaId: "5",  placar: "0-2" }, // LEE 0 - 2 FUL
+  { partidaId: "6",  placar: "1-2" }, // TOT 1 - 2 WHU
+  { partidaId: "7",  placar: "0-4" }, // NFO 0 - 4 ARS
+  { partidaId: "8",  placar: "1-2" }, // WOL 1 - 2 NEW
+  { partidaId: "9",  placar: "3-2" }, // AVL 3 - 2 EVE
+  { partidaId: "10", placar: "3-1" }, // BHA 3 - 1 BOU
       ],
     },
     {
-      nome: "-",
-      pontos: 0,
-      cravadas: 0,
+      nome: "Citron",
+      pontos: 4,
+      cravadas: 1,
       palpites: [
-  { partidaId: "1", placar: "" },
-  { partidaId: "2", placar: "-" },
-  { partidaId: "3", placar: "-" },
-  { partidaId: "4", placar: "-" },
-  { partidaId: "5", placar: "-" },
-  { partidaId: "6", placar: "-" },
-  { partidaId: "7", placar: "-" },
-  { partidaId: "8", placar: "-" },
-  { partidaId: "9", placar: "-" },
-  { partidaId: "10", placar:"-" },
+ { partidaId: "1",  placar: "2-2" }, // MUN 2 - 2 MCI
+  { partidaId: "2",  placar: "1-1" }, // CHE 1 - 1 BRE
+  { partidaId: "3",  placar: "3-0" }, // LIV 3 - 0 BUR
+  { partidaId: "4",  placar: "1-0" }, // LEE 1 - 0 FUL
+  { partidaId: "5",  placar: "2-1" }, // SUN 2 - 1 CRY
+  { partidaId: "6",  placar: "2-1" }, // TOT 2 - 1 WHU
+  { partidaId: "7",  placar: "0-2" }, // NFO 0 - 2 ARS
+  { partidaId: "8",  placar: "0-1" }, // WOL 0 - 1 NEW
+  { partidaId: "9",  placar: "2-0" }, // AVL 2 - 0 EVE
+  { partidaId: "10", placar: "1-0" }, // BHA 1 - 0 BOU
       ],
     },
     {
-      nome: "-",
+      nome: "Coluna Wolves",
       pontos: 0,
       cravadas: 0,
       palpites: [
-  { partidaId: "1", placar: "" },
-  { partidaId: "2", placar: "-" },
-  { partidaId: "3", placar: "-" },
-  { partidaId: "4", placar: "-" },
-  { partidaId: "5", placar: "-" },
-  { partidaId: "6", placar: "-" },
-  { partidaId: "7", placar: "-" },
-  { partidaId: "8", placar: "-" },
-  { partidaId: "9", placar: "-" },
-  { partidaId: "10", placar:"-" },
+  { partidaId: "1",  placar: "2-2" },
+  { partidaId: "2",  placar: "2-2" },
+  { partidaId: "3",  placar: "2-3" },
+  { partidaId: "4",  placar: "3-1" },
+  { partidaId: "5",  placar: "2-1" },
+  { partidaId: "6",  placar: "2-0" },
+  { partidaId: "7",  placar: "1-3" },
+  { partidaId: "8",  placar: "2-2" },
+  { partidaId: "9",  placar: "3-1" },
+  { partidaId: "10", placar: "2-2" },
       ],
     },
-    {
-      nome: "-",
-      pontos: 0,
-      cravadas: 0,
-      palpites: [
-  { partidaId: "1", placar: "" },
-  { partidaId: "2", placar: "-" },
-  { partidaId: "3", placar: "-" },
-  { partidaId: "4", placar: "-" },
-  { partidaId: "5", placar: "-" },
-  { partidaId: "6", placar: "-" },
-  { partidaId: "7", placar: "-" },
-  { partidaId: "8", placar: "-" },
-  { partidaId: "9", placar: "-" },
-  { partidaId: "10", placar:"-" },
-      ],
-    },
-     {
-      nome: "-",
-      pontos: 0,
-      cravadas: 0,
-      palpites: [
-  { partidaId: "1", placar: "" },
-  { partidaId: "2", placar: "-" },
-  { partidaId: "3", placar: "-" },
-  { partidaId: "4", placar: "-" },
-  { partidaId: "5", placar: "-" },
-  { partidaId: "6", placar: "-" },
-  { partidaId: "7", placar: "-" },
-  { partidaId: "8", placar: "-" },
-  { partidaId: "9", placar: "-" },
-  { partidaId: "10", placar:"-" },
-      ],
-    },
+    // {
+  //     nome: "-",
+  //     pontos: 0,
+  //     cravadas: 0,
+  //     palpites: [
+  // { partidaId: "1", placar: "" },
+  // { partidaId: "2", placar: "-" },
+  // { partidaId: "3", placar: "-" },
+  // { partidaId: "4", placar: "-" },
+  // { partidaId: "5", placar: "-" },
+  // { partidaId: "6", placar: "-" },
+  // { partidaId: "7", placar: "-" },
+  // { partidaId: "8", placar: "-" },
+  // { partidaId: "9", placar: "-" },
+  // { partidaId: "10", placar:"-" },
+  //     ],
+  //   },
+  //    {
+  //     nome: "-",
+  //     pontos: 0,
+  //     cravadas: 0,
+  //     palpites: [
+  // { partidaId: "1", placar: "" },
+  // { partidaId: "2", placar: "-" },
+  // { partidaId: "3", placar: "-" },
+  // { partidaId: "4", placar: "-" },
+  // { partidaId: "5", placar: "-" },
+  // { partidaId: "6", placar: "-" },
+  // { partidaId: "7", placar: "-" },
+  // { partidaId: "8", placar: "-" },
+  // { partidaId: "9", placar: "-" },
+  // { partidaId: "10", placar:"-" },
+  //     ],
+    // },
   ],
   placarFinal: [
-   { partidaId: "1", placar: "" },   // AVL NFO
-  { partidaId: "2", placar: "" },   // BHA BUR  
-  { partidaId: "3", placar: "" },   // WOL WHU
-  { partidaId: "4", placar: "" },   // BOU ARS
-  { partidaId: "5", placar: "" },   // LEE MUN
-  { partidaId: "6", placar: "" },   // EVE BRE
-  { partidaId: "7", placar: "" },   // FUL LIV
-  { partidaId: "8", placar: "" },   // NEW CRY
-  { partidaId: "9", placar: "" },   // TOT SUN
-  { partidaId: "10", placar: "" },
+{ partidaId: "1",  placar: "1-2" }, // West Ham 1 x 2 Forest
+{ partidaId: "2",  placar: "2-0" }, // Bournemouth 0 x 2 Chelsea
+{ partidaId: "3",  placar: "1-0" }, // Brentford 0 x 1 Leeds
+{ partidaId: "4",  placar: "1-1" }, // Crystal Palace 1 x 1 Burnley
+{ partidaId: "5",  placar: "2-1" }, // Everton 1 x 2 Sunderland
+{ partidaId: "6",  placar: "1-2" }, // Fulham 2 x 1 West Ham
+{ partidaId: "7",  placar: "0-0" }, // Man City 0 x 0 Arsenal
+{ partidaId: "8",  placar: "2-0" }, // Burnley 0 x 2 Man Utd
+{ partidaId: "9",  placar: "0-0" }, // Newcastle 0 x 0 Wolves
+{ partidaId: "10", placar: "-" }, // BHA 1 - 0 BOU
   ],
 };
 
